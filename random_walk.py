@@ -1,6 +1,7 @@
 from random import choice
 
-class Random_walk():
+
+class RandomWalk():
     """Uma classe para gerar passeios aleatorios."""
     def __init__(self, num_points=5000):
         """Inicializa os atributos de um passeio."""
