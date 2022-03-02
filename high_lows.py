@@ -2,13 +2,13 @@ import csv
 from datetime import datetime
 from matplotlib import pyplot as plt
 
-# Obtem as datas e as temperaturas maximas do arquivo
+# Obtem as datas e as temperaturas maximas e minimas do arquivo
 file_name = 'sitka_weather_2014.csv'
 with open(file_name) as f:
     reader = csv.reader(f)
     header_row = next(reader)
 
-    dates, highs = [], []
+    dates, highs, lows = [], [], []
     for row in reader:
         current_date = datetime.strptime(row[0], "%Y-%m-%d")
         dates.append(current_date)
@@ -16,12 +16,17 @@ with open(file_name) as f:
         high = int(row[1])
         highs.append(high)
 
+        low = int(row[3])
+        lows.append(low)
+
 # Faz a plotagem dos dados
 fig = plt.figure(dpi=115, figsize=(10, 6))
-plt.plot(dates, highs, c='red')
+plt.plot(dates, highs, c='red', alpha=0.5)
+plt.plot(dates, lows, c='blue', alpha=0.5)
+plt.fill_between(dates, highs, lows, facecolor='blue', alpha=0.1)
 
 # Formata o grafico
-plt.title("Daily high temperatures, - 2014", fontsize=24)
+plt.title("Daily high and low temperatures, - 2014", fontsize=24)
 plt.xlabel('', fontsize=16)
 fig.autofmt_xdate()
 plt.ylabel("Temperature (F)", fontsize=16)
