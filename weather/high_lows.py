@@ -3,7 +3,7 @@ from datetime import datetime
 from matplotlib import pyplot as plt
 
 # Obtem as datas e as temperaturas maximas e minimas do arquivo
-file_name = 'weather/death_valley_2014.csv'
+file_name = 'death_valley_2014.csv'
 with open(file_name) as f:
     reader = csv.reader(f)
     header_row = next(reader)

@@ -28,4 +28,4 @@ hist.x_title = "Result"
 hist.y_title = "Frequency of Result"
 
 hist.add('D6 + D10', frequencies)
-hist.render_to_file('die_visual.svg')
+hist.render_to_file('dice_visual.svg')

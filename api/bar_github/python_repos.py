@@ -44,4 +44,4 @@ chart.title = 'Most-Starred Python Projects on GitHub'
 chart.x_labels = names
 
 chart.add('', plot_dics)
-chart.render_to_file('python_repos.svg')
+chart.render_to_file('bar_github/python_repos.svg')
