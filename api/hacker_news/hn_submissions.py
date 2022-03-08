@@ -10,17 +10,17 @@ print("Status code:", r.status_code)
 
 # Processa informaçoes sobre cada artigo submetido
 submission_ids = r.json()
-names, submission_dicts = [], []
+submission_dicts = []
 for submission_id in submission_ids[:30]:
     # Cria uma chamada de API separada para cada artigo submetido
     url = ('https://hacker-news.firebaseio.com/v0/item/' +
            str(submission_id) + '.json')
     submission_r = requests.get(url)
-    #print(submission_r.status_code)
+    print(submission_r.status_code)
     response_dict = submission_r.json()
-    names.append(response_dict['title'])
 
     submission_dict = {
+        'title':(response_dict['title']),
         'link': 'news.ycombinator.com/item?id=' + str(submission_id),
         'comments': response_dict.get('descendants', 0)
     }
